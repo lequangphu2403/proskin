@@ -7,22 +7,9 @@ stages:
 deploy_main:
   stage : main
 
-  on:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
-
-  permissions:
-    contents: read
-
-  jobs:
-    build:
-
-      runs-on: ubuntu-latest
-
-      steps:
-      - run: echo "Lê Quang Phú"
+  script:
+    - echo "Compiling the code.. main"
+    - echo "Compile complete. main"
 deploy_dev:
   stage : dev
   script:
