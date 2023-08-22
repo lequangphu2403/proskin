@@ -6,13 +6,13 @@ on:
   pull_request:
     branches: [ "main" ]
 
-  permissions:
-    contents: read
+permissions:
+  contents: read
 
-  jobs:
-    build:
+jobs:
+  build:
 
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-      - run: echo "Lê Quang Phú"
+    steps:
+    - run: echo "Lê Quang Ph"
