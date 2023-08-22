@@ -1,16 +1,7 @@
-name: Laravel
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  laravel-tests:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - run: echo "Lê Quang Phú"
-    - run: echo "Lê Quang Phú 1"
+stages:          
+  - main
+build-job:      
+  stage: main
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
