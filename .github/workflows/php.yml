@@ -7,11 +7,26 @@ stages:
 deploy_main:
   stage : main
 
-  script:
-    - echo "Compiling the code.. main"
-    - echo "Compile complete. main"
+  
 deploy_dev:
   stage : dev
   script:
     - echo "Compiling the code..."
     - echo "Compile complete."
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+  permissions:
+    contents: read
+
+  jobs:
+    build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+      - run: echo "Lê Quang Phú"
