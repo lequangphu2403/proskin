@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: sudo composer install
+    - run: ssh parallels@10.211.55.4 cd /var/www/ && git clone https://github.com/lequangphu2403/test_cicd.git
     - run: echo "Lê Quang Ph"
