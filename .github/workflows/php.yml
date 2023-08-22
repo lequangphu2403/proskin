@@ -1,19 +1,5 @@
 name: PHP Composer
 
-stages:
-  - main
-  - dev
-
-deploy_main:
-  stage : main
-
-  
-deploy_dev:
-  stage : dev
-  script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
-
 on:
     push:
       branches: [ "main" ]
@@ -29,4 +15,5 @@ on:
       runs-on: ubuntu-latest
 
       steps:
+      - run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - run: echo "Lê Quang Phú"
