@@ -1,18 +1,30 @@
 name: PHP Composer
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+stages:
+  - main
+  - dev
 
-permissions:
-  contents: read
+deploy_main:
+  stage : main
 
-jobs:
-  build:
+  on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
 
-    runs-on: ubuntu-latest
+  permissions:
+    contents: read
 
-    steps:
-    - run: echo "Lê Quang Phú"
+  jobs:
+    build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+      - run: echo "Lê Quang Phú"
+deploy_dev:
+  stage : dev
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
