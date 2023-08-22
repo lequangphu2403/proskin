@@ -1,0 +1,7 @@
+stages:          
+  - dev
+build-job:      
+  stage: dev
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
