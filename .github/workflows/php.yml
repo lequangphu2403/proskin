@@ -18,6 +18,4 @@ jobs:
     - run: echo "${{ secrets.SSH_USER }}"
     - run: echo "Phú"
     - name: connect and pull
-      run: ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd ~/.ssh/ && mkdir file.txt && exit'
-    - name: show
-      run: echo "Le Quang Phu 1"
+      run: ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'hostname && echo 'Welcome!!!' > welcome.txt'
