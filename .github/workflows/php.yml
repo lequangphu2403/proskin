@@ -15,9 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - run: mkdir -p ~/.ssh
-    - run: chmod 700 ~/.ssh
     - run: ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
     - run: chmod 644 ~/.ssh/known_hosts
     - run: echo "$SSH_USER"
