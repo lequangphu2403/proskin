@@ -16,6 +16,7 @@ jobs:
 
     steps:
     - run: echo "${{ secrets.SSH_USER }}"
+    - run: echo "Phú"
     - name: connect and pull
       run: ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /usr/src/ && git clone https://github.com/lequangphu2403/test_cicd.git"
     - name: show
