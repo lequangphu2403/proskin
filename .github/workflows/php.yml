@@ -18,6 +18,6 @@ jobs:
     - run: echo "${{ secrets.SSH_USER }}"
     - run: echo "Phú"
     - name: connect and pull
-      run: sshpass -p 'Vnwd5PHHb' ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+      run: sshpass -p 'Vnwd5PHHb' ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ~/.ssh/ && mkdir file.txt"
     - name: show
       run: echo "Le Quang Phu 2"
