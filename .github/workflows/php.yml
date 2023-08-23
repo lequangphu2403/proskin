@@ -15,4 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: sshpass -p "Vnwd5PHHb" ssh -p 9020 root@103.173.154.181 'echo 123'
+    # - run: sshpass -p "Vnwd5PHHb" ssh -p 9020 root@103.173.154.181 'echo 123'
+    with:
+        host: 103.173.154.181
+        USERNAME: root
+        PORT: 9020
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: ls
