@@ -15,9 +15,4 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
-    - run: chmod 644 ~/.ssh/known_hosts
-    - run: echo "$SSH_USER"
-    - run: echo "Phú 1"
-    - name: connect and pull
       run: ssh -p 9020 $SSH_USER@$SSH_HOST 'hostname && echo 'Welcome!!!' > welcome.txt'
