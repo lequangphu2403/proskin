@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ping 10.211.55.4
+    - run: ssh -p 9020 root@103.173.154.181
     - run: echo "Lê Quang Ph"
