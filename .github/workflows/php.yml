@@ -3,7 +3,6 @@ stages:
 build-job:
   stage: main
   script:
-    - echo $PRIVATE_KEY
     - echo 12311
 #    # chạy ssh-agent tương ứng với Gitlab Runner hiện tại
 #    - eval $(ssh-agent -s)
