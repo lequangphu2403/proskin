@@ -19,10 +19,10 @@ jobs:
     - name: Deploy source-code
       uses: appleboy/ssh-action@v0.1.10
       env:
-          HOST: 103.173.154.181
-          USERNAME: root
-          PORT: 9020
-          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: 103.173.154.181
+          username: root
+          port: 9020
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "*"
         target: "/usr/src/"
