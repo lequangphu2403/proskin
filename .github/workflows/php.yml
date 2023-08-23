@@ -19,6 +19,8 @@ jobs:
       run: cd /usr/src
     - name: tesst 
       run: sshpass -p "Vnwd5PHHb" ssh -o StrictHostKeyChecking=no -p 9020 root@103.173.154.181 "cd /usr/src && mkdir test && exit"
+    - name: clone code git 
+      run: git clone https://github.com/lequangphu2403/test_cicd.git
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
