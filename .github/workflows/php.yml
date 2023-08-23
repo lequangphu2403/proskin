@@ -16,7 +16,6 @@ jobs:
 
     steps:
     # - run: sshpass -p "Vnwd5PHHb" ssh -p 9020 root@103.173.154.181 'echo 123'
-    - uses: actions/checkout@v2
     - name: Deploy source-code
       uses: appleboy/scp-action@master
       env:
