@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "${{ secrets.SSH_USER }}"
+    - run: echo "$SSH_USER"
     - run: echo "Phú"
     - name: connect and pull
-      run: ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'hostname && echo 'Welcome!!!' > welcome.txt'
+      run: ssh -p 9020 $SSH_USER@$SSH_HOST 'hostname && echo 'Welcome!!!' > welcome.txt'
