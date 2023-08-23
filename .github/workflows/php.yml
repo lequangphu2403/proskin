@@ -15,5 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ssh -o StrictHostKeyChecking=no -p 9020 root@103.173.154.181
-    - run: echo "Lê Quang Ph"
+    - name: check keys
+      run: ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+    - name: connect and pull
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /usr/src/ && git clone https://github.com/lequangphu2403/test_cicd.git"
+    - name: show
+      run: echo "Le Quang Phu"
