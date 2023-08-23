@@ -23,3 +23,6 @@ jobs:
           USERNAME: root
           PORT: 9020
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      with:
+        source: "*"
+        target: "/usr/src/"
