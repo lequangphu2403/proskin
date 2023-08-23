@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+    - run: echo "${{ secrets.SSH_USER }}"
     - name: connect and pull
       run: ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /usr/src/ && git clone https://github.com/lequangphu2403/test_cicd.git"
     - name: show
