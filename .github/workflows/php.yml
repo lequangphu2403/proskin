@@ -1,34 +1,39 @@
-stages:
-  - main
-build-job:
-  stage: main
-  script:
-    - echo 12311
-#    # chạy ssh-agent tương ứng với Gitlab Runner hiện tại
-#    - eval $(ssh-agent -s)
-#
-#    # thêm nội dung của biến SSH_PRIVATE_KEY vào agent store
-#    - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
-#
-#    # tạo folder ~/.ssh
-#    - mkdir -p ~/.ssh
-#
-#    # Scan lấy SSH Host key cho địa chỉ IP server
-#    # Được kết quả bao nhiêu thì thêm vào file known_hosts
-#    - ssh-keyscan -H $SSH_SERVER_IP >> ~/.ssh/known_hosts
-#
-#    # Sửa lại quyền của file known_hosts
-#    - chmod 644 ~/.ssh/known_hosts
-#    - ssh -p 9020 $SSH_USER@$SSH_SERVER_IP
-#      " echo 'Vnwd5PHHb';
-#      cd ${PATH_TO_PROJECT};
-#      mkdir test;"
-#
-#
-##    - ssh-keygen -Y -f $PRIVATE_KEY
-##    - apk update && apk add openssh-client
-##    - ssh-keyscan -H 103.173.154.181 >> ~/.ssh/known_hosts
-##    - ssh -tt -o StrictHostKeyChecking=no -p 9020 root@103.173.154.181 "echo 'Vnwd5PHHb' && cd /usr/src && mkdir test && exit"
-##    - echo "Compiling the code..."
-##    - echo "Compile complete. 1"
-##    - cd /usr/src && mkdir test.txt
+name: PHP Composer
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
