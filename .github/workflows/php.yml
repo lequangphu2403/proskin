@@ -20,4 +20,4 @@ jobs:
     - name: connect and pull
       run: sshpass -p 'Vnwd5PHHb' ssh -p 9020 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /usr/src/ && git clone https://github.com/lequangphu2403/test_cicd.git"
     - name: show
-      run: echo "Le Quang Phu 4"
+      run: echo "Le Quang Phu 1"
