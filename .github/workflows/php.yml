@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - run: sshpass -p "Vnwd5PHHb" ssh -p 9020 root@103.173.154.181 'echo 123'
-    - name: Deploy source-code
-      uses: appleboy/ssh-action@v0.1.10
-      env:
-          host: 103.173.154.181
-          username: root
-          port: 9020
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-      with:
-        host: 103.173.154.181
-        username: root
-        port: 9020
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - run: ssh -o 'StrictHostKeyChecking no' -p 9020 root@103.173.154.181 'echo 123'
+    # - name: Deploy source-code
+    #   uses: appleboy/ssh-action@v0.1.10
+    #   env:
+    #       host: 103.173.154.181
+    #       username: root
+    #       port: 9020
+    #       key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #   with:
+    #     host: 103.173.154.181
+    #     username: root
+    #     port: 9020
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
