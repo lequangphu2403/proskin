@@ -20,6 +20,4 @@ jobs:
     - name: Install dependencies
       run: cd /usr/src
     - name: tesst 11
-      run: sshpass -p "${{secrets.SSH_PASSWORD}}" ssh -o StrictHostKeyChecking=no -p 9020 ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} 
-      "cd ${{secrets.SSH_PATH}} ;
-       git clone ${{secrets.SSH_PROJECT_GIT}} ; exit"
+      run: sshpass -p "${{secrets.SSH_PASSWORD}}" ssh -o StrictHostKeyChecking=no -p 9020 ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} "cd ${{secrets.SSH_PATH}} && git clone ${{secrets.SSH_PROJECT_GIT}} && exit"
